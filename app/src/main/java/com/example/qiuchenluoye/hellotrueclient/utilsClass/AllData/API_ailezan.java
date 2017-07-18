@@ -68,7 +68,7 @@ public class API_ailezan {
             if (Objects.equals(result[1], "[]")) {
                 return new ArrayList<mQuirysInfo>();
             }
-            List<mQuirysInfo> mInfo = GsonUtil.ResolveJsons(result[1]);
+            List<mQuirysInfo> mInfo = GsonUtil.ResolveJson(result[1],mQuirysInfo[].class);
             return mInfo;
         } else {
             return null;

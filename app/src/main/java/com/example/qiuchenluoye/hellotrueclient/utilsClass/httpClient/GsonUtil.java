@@ -3,6 +3,8 @@ package com.example.qiuchenluoye.hellotrueclient.utilsClass.httpClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,10 +22,17 @@ import java.util.List;
 
 
 public class GsonUtil {
-    public static <T> T ResolveJson(String json, Class<T> type) {
+    public static <T> T ResolveJsonA(String json, Class<T> type) {
         Gson gson = new Gson();
         T res = gson.fromJson(json, type);
         return res;
+    }
+
+    public static <T> List<T> ResolveJson(String json, Class<T[]> cs) {
+        Gson gson = new Gson();
+        T[] s = gson.fromJson(json, cs);
+        return Arrays.asList(s);
+
     }
 
     public static <T> List<T> ResolveJsons(String json) {

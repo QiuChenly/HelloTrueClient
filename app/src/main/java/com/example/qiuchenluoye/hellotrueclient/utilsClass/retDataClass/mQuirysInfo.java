@@ -20,5 +20,4 @@ public class mQuirysInfo {
     public String money;
     public String phone;
     public String sName;
-
 }
