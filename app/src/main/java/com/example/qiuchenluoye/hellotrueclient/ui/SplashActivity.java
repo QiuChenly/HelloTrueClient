@@ -77,6 +77,8 @@ public class SplashActivity extends AppCompatActivity {
                                                     alldata.d.mLevel = s[2];
                                                     alldata.d.mGetPhoneMaxNums = s[3];
                                                     alldata.d.isProgramer = s[4].equals("软件商");
+                                                    alldata.d.mUsername=alldata.d.sharedPreferences.getString("mUser","null");
+                                                    alldata.d.mPassword=alldata.d.sharedPreferences.getString("mPass","null");
                                                 } else {
                                                     alldata.d.editor.putBoolean("isLogin", false);
                                                     alldata.d.editor.apply();

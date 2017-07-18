@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import com.example.qiuchenluoye.hellotrueclient.MainActivity;
 import com.example.qiuchenluoye.hellotrueclient.R;
-import com.example.qiuchenluoye.hellotrueclient.untilsClass.AllData.alldata;
-import com.example.qiuchenluoye.hellotrueclient.untilsClass.AllData.loginResult;
+import com.example.qiuchenluoye.hellotrueclient.utilsClass.AllData.alldata;
+import com.example.qiuchenluoye.hellotrueclient.utilsClass.AllData.loginResult;
 
 import java.io.IOException;
 
@@ -80,7 +80,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                 });
             }
         };
-        setVerifyCodeImage.start();
+       setVerifyCodeImage.start();
     }
 
     @Override
@@ -98,7 +98,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                         try {
                             final loginResult result = alldata.d.ailezan.login(u, p, vCode);
                             if (result.statusCode != 1) {
-                                alldata.d.captcha = alldata.d.ailezan.getCaptcha();
+                                setVerifyCodeImage.start();
                             }
                             loginActivity.this.runOnUiThread(new Runnable() {
                                 @Override
@@ -135,7 +135,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                                         }.start();
                                     } else {
                                         Toast.makeText(loginActivity.this, result.reason, Toast.LENGTH_SHORT).show();
-                                        verifyImageView.setImageBitmap(alldata.d.captcha);
                                     }
                                 }
                             });
@@ -144,7 +143,6 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 }.start();
-
                 break;
             case R.id.login_registerBtn:
                 break;

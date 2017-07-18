@@ -19,7 +19,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FFCE3D3A"
+        android:background="@color/colorPrimaryColor"
         app:contentInsetStart="0.0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
