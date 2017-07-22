@@ -8,7 +8,6 @@ import com.example.qiuchenluoye.hellotrueclient.utilsClass.AllData.data;
  */
 
 public class alldata {
- public static data d = null;
-
+    public static data d = null;
 }
 

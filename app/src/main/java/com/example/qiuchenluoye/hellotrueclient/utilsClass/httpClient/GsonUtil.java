@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,8 +32,15 @@ public class GsonUtil {
     public static <T> List<T> ResolveJson(String json, Class<T[]> cs) {
         Gson gson = new Gson();
         T[] s = gson.fromJson(json, cs);
-        return Arrays.asList(s);
 
+        //修正错误:Arrays.aslist() 返回的内部类不允许被修改
+        //需要枚举出来重新加入数据并返回
+        List<T> list = new ArrayList<>();
+
+        for (T t : s) {
+            list.add(t);
+        }
+        return list;
     }
 
     public static <T> List<T> ResolveJsons(String json) {

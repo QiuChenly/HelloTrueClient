@@ -2,6 +2,7 @@ package com.example.qiuchenluoye.hellotrueclient.adapter;
 
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,13 @@ import java.util.List;
 public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiryAdapter.VH> {
 
     List<mQuirysInfo> data;
+    boolean isFull;
+    int count;
+
+    public void setFull(boolean full) {
+        isFull = full;
+        notifyDataSetChanged();
+    }
 
     //设置适配器数据
     public void setData(List<mQuirysInfo> d) {
@@ -34,10 +42,19 @@ public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiry
 
     @Override
     public void onBindViewHolder(VH holder, int position) {
-        mQuirysInfo m = data.get(position);
-        holder.time.setText(m.createTime);
-        holder.ItemName.setText(m.sName);
-        holder.phoneNum.setText(m.phone);
+        count = position;
+        if (count == data.size() && isFull) {
+        } else {
+            mQuirysInfo m = data.get(position);
+            try {
+                holder.time.setText(m.createTime);
+                holder.ItemName.setText(m.sName);
+                holder.phoneNum.setText(m.phone);
+            } catch (NullPointerException e) {
+                Log.d("QiuChen", "空指针异常!");
+            }
+
+        }
     }
 
     @Override
@@ -56,7 +73,13 @@ public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiry
         }
     }
 
-   public  void addData(List<mQuirysInfo> d) {
+    public void addData(List<mQuirysInfo> d) {
         this.data.addAll(d);
+        notifyDataSetChanged();
+    }
+
+    public void addData(mQuirysInfo d) {
+        this.data.add(d);
+        notifyDataSetChanged();
     }
 }

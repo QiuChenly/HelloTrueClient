@@ -31,6 +31,14 @@ public class httpClient {
 
   public static String cookies;
 
+  public static void setCookies(String cookies) {
+    httpClient.cookies = cookies;
+  }
+
+  public static String getCookies() {
+    return cookies;
+  }
+
   public static Bitmap Request_Image(String url, String Cookie) throws IOException {
     ResponseData responseData = Request(url, 0, null, Cookie, null, 10000, 10000, false);
     if (responseData != null) {

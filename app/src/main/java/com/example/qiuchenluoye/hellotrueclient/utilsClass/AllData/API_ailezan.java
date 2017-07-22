@@ -3,6 +3,7 @@ package com.example.qiuchenluoye.hellotrueclient.utilsClass.AllData;
 import android.graphics.Bitmap;
 
 
+import com.example.qiuchenluoye.hellotrueclient.InterfaceClass.BaseLoginInterface;
 import com.example.qiuchenluoye.hellotrueclient.utilsClass.httpClient.GsonUtil;
 import com.example.qiuchenluoye.hellotrueclient.utilsClass.httpClient.ResponseData;
 import com.example.qiuchenluoye.hellotrueclient.utilsClass.httpClient.httpClient;
@@ -18,7 +19,7 @@ import java.util.Objects;
  * CreateDate 2017/7/1.
  */
 
-public class API_ailezan {
+public class API_ailezan implements BaseLoginInterface {
     public loginResult login(String user, String pass, String vcode) throws IOException {
         String url = "http://api2.hellotrue.com/api/do.php?web=true&action=loginIn&name=" +
                 user + "&password=" + pass + "&captcha=" + vcode;
@@ -54,8 +55,9 @@ public class API_ailezan {
     }
 
     public Bitmap getCaptcha() throws IOException {
+        httpClient.setCookies("");
         String url = "http://api2.hellotrue.com/i/captcha.php?r=";
-        return httpClient.Request_Image(url, httpClient.cookies);
+        return httpClient.Request_Image(url, null);
     }
 
     public List<mQuirysInfo> getMessageListBetweenTimes(String session, String sTime, String eTime, String page) throws IOException {
@@ -68,7 +70,7 @@ public class API_ailezan {
             if (Objects.equals(result[1], "[]")) {
                 return new ArrayList<mQuirysInfo>();
             }
-            List<mQuirysInfo> mInfo = GsonUtil.ResolveJson(result[1],mQuirysInfo[].class);
+            List<mQuirysInfo> mInfo = GsonUtil.ResolveJson(result[1], mQuirysInfo[].class);
             return mInfo;
         } else {
             return null;
