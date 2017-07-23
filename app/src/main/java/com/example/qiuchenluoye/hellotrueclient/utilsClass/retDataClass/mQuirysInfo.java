@@ -14,10 +14,7 @@ package com.example.qiuchenluoye.hellotrueclient.utilsClass.retDataClass;
  */
 
 
-public class mQuirysInfo {
+public class mQuirysInfo extends BaseInComeData{
     public String content;
-    public String createTime;
-    public String money;
     public String phone;
-    public String sName;
 }

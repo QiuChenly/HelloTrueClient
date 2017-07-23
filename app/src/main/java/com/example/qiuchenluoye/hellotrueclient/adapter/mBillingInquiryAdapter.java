@@ -47,8 +47,8 @@ public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiry
         } else {
             mQuirysInfo m = data.get(position);
             try {
-                holder.time.setText(m.createTime);
-                holder.ItemName.setText(m.sName);
+                holder.time.setText(m.getCreatTime());
+                holder.ItemName.setText(m.getConsumptionType());
                 holder.phoneNum.setText(m.phone);
             } catch (NullPointerException e) {
                 Log.d("QiuChen", "空指针异常!");

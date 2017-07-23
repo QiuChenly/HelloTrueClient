@@ -216,9 +216,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                     return;
                                                 }
                                                 mQuirysInfo mQuirysInfo = new mQuirysInfo();
-                                                mQuirysInfo.sName = String.valueOf(i);
+                                                mQuirysInfo.setConsumptionType(String.valueOf(i));
                                                 mQuirysInfo.phone = String.valueOf(i);
-                                                mQuirysInfo.createTime = String.valueOf(i);
+                                                mQuirysInfo.setCreatTime(String.valueOf(i));
                                                 mBillingInquiryAdapter.addData(mQuirysInfo);//更新数据
 
                                             }

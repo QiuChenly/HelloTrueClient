@@ -28,4 +28,6 @@ public interface BaseLoginInterface {
     Bitmap getCaptcha() throws IOException;
 
     List<mQuirysInfo> getMessageListBetweenTimes(String session, String sTime, String eTime, String page) throws IOException;
+
+
 }
