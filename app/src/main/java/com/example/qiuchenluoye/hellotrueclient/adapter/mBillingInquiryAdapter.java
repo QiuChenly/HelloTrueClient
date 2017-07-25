@@ -14,7 +14,10 @@ import com.example.qiuchenluoye.hellotrueclient.utilsClass.retDataClass.mQuirysI
 import java.util.List;
 
 /**
- * Created by QiuChenluoye on 2017/07/18.
+ * Author: QiuChenluoye
+ *   Time: 2017/07/18,下午 09:07
+ *   Func: 功能名称
+ *  Using: 无解释
  */
 
 public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiryAdapter.VH> {
