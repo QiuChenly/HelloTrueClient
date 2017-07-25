@@ -8,16 +8,16 @@ package com.example.qiuchenluoye.hellotrueclient.utilsClass.retDataClass;
  */
 
 abstract class BaseInComeData {
-    String CreatTime;
+    String CreateTime;
     String ConsumptionType;
     String Money;
 
-    public String getCreatTime() {
-        return CreatTime;
+    public String getCreateTime() {
+        return CreateTime;
     }
 
-    public void setCreatTime(String creatTime) {
-        CreatTime = creatTime;
+    public void setCreateTime(String createTime) {
+        CreateTime = createTime;
     }
 
     public String getConsumptionType() {

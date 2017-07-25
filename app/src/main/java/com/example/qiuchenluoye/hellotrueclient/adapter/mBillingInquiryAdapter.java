@@ -47,7 +47,7 @@ public class mBillingInquiryAdapter extends RecyclerView.Adapter<mBillingInquiry
         } else {
             mQuirysInfo m = data.get(position);
             try {
-                holder.time.setText(m.getCreatTime());
+                holder.time.setText(m.getCreateTime());
                 holder.ItemName.setText(m.getConsumptionType());
                 holder.phoneNum.setText(m.phone);
             } catch (NullPointerException e) {
